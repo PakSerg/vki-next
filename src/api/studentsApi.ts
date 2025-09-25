@@ -17,3 +17,23 @@ export const getStudentsApi = async (): Promise<StudentInterface[]> => {
     return [] as StudentInterface[];
   }
 };
+
+
+export const deleteStudentApi = async (id: any): Promise<number | null> => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API}students/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    return data.id ?? null;
+  } catch (err) {
+    console.log('>>> deleteStudentApi', err);
+    return null;
+  }
+};
