@@ -37,3 +37,24 @@ export const deleteStudentApi = async (id: any): Promise<number | null> => {
     return null;
   }
 };
+
+
+export const addStudentApi = async (studentData: any): Promise<number | null> => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API}students`, {
+      method: 'POST',
+      body: JSON.stringify(studentData)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    return data.id ?? null;
+  } catch (err) {
+    console.log('>>> addStudentApi', err);
+    return null;
+  }
+};
