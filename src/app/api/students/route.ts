@@ -1,3 +1,4 @@
+import Student from '@/components/Students/Student/Student';
 import { getStudentsDb } from '@/db/studentDb';
 import { addStudentDb } from '@/db/studentDb';
 
@@ -13,6 +14,7 @@ export async function GET(): Promise<Response> {
 export async function POST(request: Request): Promise<Response> {
   try {
     const data = await request.json();
+    delete data['id'];
     const newStudent = await addStudentDb(data); 
 
     return new Response(JSON.stringify(newStudent), {

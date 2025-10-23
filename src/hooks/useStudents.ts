@@ -54,14 +54,14 @@ const useStudents = (): StudentsHookInterface => {
     onSuccess: async (studentId, variables, { previousStudents }) => {
       await queryClient.cancelQueries({ queryKey: ['students'] });
       // вариант 1 - запрос всех записей
-      // refetch();
+      refetch();
 
       // вариант 2 - удаление конкретной записи
-      if (!previousStudents) {
-        return;
-      }
-      const updatedStudents = previousStudents.filter((student: StudentInterface) => student.id !== studentId);
-      queryClient.setQueryData<StudentInterface[]>(['students'], updatedStudents);
+      // if (!previousStudents) {
+      //   return;
+      // }
+      // const updatedStudents = previousStudents.filter((student: StudentInterface) => student.id !== studentId);
+      // queryClient.setQueryData<StudentInterface[]>(['students'], updatedStudents);
     },
     // onSettled: (data, error, variables, context) => {
     //   // вызывается после выполнения запроса в случаи удачи или ошибке
