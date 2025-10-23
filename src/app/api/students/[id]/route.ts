@@ -1,4 +1,4 @@
-import { deleteStudentsDb } from "@/db/deleteStudentDb";
+import { deleteStudentDb } from "@/db/studentDb";
 import { type NextApiRequest } from "next/types"; 
 
 export async function DELETE(
@@ -7,7 +7,7 @@ export async function DELETE(
 ): Promise<Response> {
     const p = await params; 
     const studentId = await p.id; 
-    const deleteStudentId = await deleteStudentsDb(studentId); 
+    const deleteStudentId = await deleteStudentDb(studentId); 
 
     return new Response(JSON.stringify({ deleteStudentId }), {
         headers: {

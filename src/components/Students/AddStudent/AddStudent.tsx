@@ -1,35 +1,51 @@
 import type StudentInterface from '@/types/StudentInterface';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import styles from './AddStudent.module.scss';
-import { useForm } from 'react-hook-form';
+
+export type FormFields = Pick<StudentInterface, 'firstName' | 'lastName' | 'middleName'>;
 
 interface Props {
-  student: StudentInterface;
+  onAdd: (studentForm: FormFields) => void;
 }
 
-interface AddStudentForm {
-    firstName: string, 
-    lastName: string, 
-    middleName: string
-}
+const AddStudent = ({ onAdd }: Props): React.ReactElement => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>();
 
-export default function AddStudent({ onAdd }: {
-    onAdd: (data: AddStudentForm) => void;
-}) {
-    const { register, handleSubmit } = useForm<AddStudentForm>(); 
+  const onSubmit: SubmitHandler<FormFields> = studentForm => onAdd(studentForm);
 
-    return (
-        <form onSubmit={handleSubmit(onAdd)}>
+  return (
+    <div className={styles.AddStudent}>
+      <h2>Добавления студента</h2>
 
-            <h2>Добавить нового студента</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
 
-            <div className={ styles.inputsContainer }>
-                <input type="text" {...register('firstName')} placeholder='Имя' required/>
-                <input type="text" {...register('middleName')} placeholder='Отчество' required/>
-                <input type="text" {...register('lastName')} placeholder='Фамилия' required/>
-            </div>
+        <input
+          placeholder="Фамилия"
+          {...register('lastName', { required: true })}
+        />
+        {errors.lastName && <div>Обязательное поле</div>}
 
-            <button className={ styles.saveButton } type='submit'>Сохранить</button>
-        </form>
-    );
+        <input
+          placeholder="Имя"
+          {...register('firstName', { required: true })}
+        />
+        {errors.firstName && <div>Обязательное поле</div>}
+
+        <input
+          placeholder="Отчество"
+          {...register('middleName', { required: true })}
+        />
+        {errors.middleName && <div>Обязательное поле</div>}
+
+        <input type="submit" value="Добавить" />
+      </form>
+
+    </div>
+  );
 };
 
+export default AddStudent;

@@ -1,13 +1,29 @@
+$width: 400px;
 
-.inputsContainer {
+.AddStudent {
+  margin-bottom: 30px;
+  width: 400px;
+
+  input {
+    width: calc($width - 8px);
+  }
+
+  input[type=submit] {
+    width: 428px;
+  }
+
+
+  form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-}
+    gap: 15px;
+  }
 
-.inputsContainer input {
-    font-size: 14px;
-    padding: 6px 8px;
+  form input {
+    padding: 8px 12px;
     border-radius: 4px;
-}
+    font-size: 14px;
+    width: 400px;
+  }
 
+}

@@ -1,10 +1,13 @@
 interface StudentInterface {
   id: number;
-  name: string;
-  isDeleted: boolean;
-  last_name: string;
-  first_name: string; 
-  middle_name: string;
+  uuid?: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  contacts?: string;
+  groupId: number;
+  isDeleted?: boolean;
+  isNew?: boolean;
 };
 
 export default StudentInterface;

@@ -1,5 +1,5 @@
-import { getStudentsDb } from '@/db/getStudentsDb';
-import { addStudentDb } from '@/db/addStudentDb';
+import { getStudentsDb } from '@/db/studentDb';
+import { addStudentDb } from '@/db/studentDb';
 
 
 

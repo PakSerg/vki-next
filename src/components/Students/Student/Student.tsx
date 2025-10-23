@@ -11,16 +11,11 @@ const Student = ({ student, onDelete }: Props): React.ReactElement => {
     onDelete(student.id);
   };
 
+  const modifier = student.isDeleted ? '--isDeleted' : student.isNew ? '--isNew' : '';
+
   return (
-    <div className={`${styles.Student} ${student.isDeleted ? styles['--isDeleted'] : '' }`}>
-      {student.id}
-      {' - '}
-      {student.last_name}
-      {' '}
-      {student.first_name}
-      {' '}
-      {student.middle_name}
-      {' '}
+    <div className={`${styles.Student} ${styles[modifier]}`}>
+      {`${student.id || 'xxxx'} - ${student.lastName} ${student.firstName} ${student.middleName}`}
       <button onClick={onDeleteHandler}>Удалить</button>
     </div>
   );
