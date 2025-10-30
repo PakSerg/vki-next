@@ -3,7 +3,7 @@
 import useStudents from '@/hooks/useStudents';
 import type StudentInterface from '@/types/StudentInterface';
 import styles from './Students.module.scss';
-import Student from './Student/Student';
+import StudentInList from './StudentInList/StudentInList';
 import AddStudent, { type FormFields } from './AddStudent/AddStudent';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -16,12 +16,16 @@ const Students = (): React.ReactElement => {
 
   const onDeleteHandler = (studentId: number): void => {
     if (confirm('Удалить студента?')) {
+      debugger; 
+      console.log('onDeleteHandler', studentId);
+
       deleteStudentMutate(studentId);
     }
   };
 
   const onAddHandler = (studentFormField: FormFields): void => {
-    console.log('Добавление студента', studentFormField);
+    debugger; 
+    console.log('onAddHandler', studentFormField);
 
     addStudentMutate({
       id: -1,
@@ -36,7 +40,7 @@ const Students = (): React.ReactElement => {
       <AddStudent onAdd={onAddHandler} />
 
       {students.map((student: StudentInterface) => (
-        <Student
+        <StudentInList
           key={student.id || student.uuid}
           student={student}
           onDelete={onDeleteHandler}

@@ -1,4 +1,4 @@
-import Student from '@/components/Students/Student/Student';
+import StudentInList from '@/components/Students/StudentInList/StudentInList';
 import { getStudentsDb } from '@/db/studentDb';
 import { addStudentDb } from '@/db/studentDb';
 
