@@ -16,8 +16,10 @@ const StudentInList = ({ student, onDelete }: Props): React.ReactElement => {
   return (
     <a 
       className={`${styles.Student} ${styles[modifier]}`}
+      href={'/students/' + student.id}
+      
     >
-      {`${student.id || 'xxxx'} - ${student.lastName} ${student.firstName} ${student.middleName}`}
+      {`${student.id || 'xxxx'} - ${student.lastName} ${student.firstName} ${student.middleName}, ${student.group?.name}`}
       <button onClick={onDeleteHandler}>Удалить</button>
     </a>
   );
