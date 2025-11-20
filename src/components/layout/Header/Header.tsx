@@ -4,7 +4,10 @@ import styles from './Header.module.scss';
 
 const Header = (): React.ReactElement => (
   <header className={styles.Header}>
-    <div className={styles.title}>Вэб разработка</div>
+    <img src="https://ci.nsu.ru/local/templates/vki/images/logo.png" alt=""/>
+    <div className={styles.title}>
+      Веб разработка
+    </div>
     <Menu />
   </header>
 );

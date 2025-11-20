@@ -1,0 +1,26 @@
+
+
+.Student {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+.StudentSpec {
+    font-size: 20px;
+    display: flex;
+    gap: 8px;
+    width: 500px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--dark-azul-turquesa);
+    padding: 4px 4px;
+}
+
+.StudentSpec span:first-of-type {
+    color: var(--dark-azul-turquesa);
+    font-weight: 600;
+}
+
+.StudentSpec span + span {
+    font-size: 16x;
+}

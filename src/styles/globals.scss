@@ -7,6 +7,12 @@
   --background: #FFF;
   --background2: #E1E1E1;
   --background3: #434343;  
+
+  --gray: #3D3D3D; 
+  --light-green: #84B026; 
+  --azul-turquesa: #217373; 
+  --dark-azul-turquesa: #173540;
+  --dark-blue: #161F30;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,7 +63,7 @@
 body {
   margin: 0;
   font-family: PTSans;
-  color: var(--color);
+  color: var(--dark-blue);
   background-color: var(--background);
   font-size: 18px;
 
@@ -85,8 +91,10 @@ h1 {
 
 h2 {
   @include commons;
-  font-size: 32px;
+  font-size: 35px;
   font-weight: bold;
+
+  color: var(--dark-blue);
 
   // @media #{main.$mob} {
   //   font-size: main.vwMax(20px);

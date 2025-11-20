@@ -15,7 +15,7 @@ import StudentInterface from '@/types/StudentInterface';
 import { getStudentsApi } from '@/api/studentsApi';
 
 export const metadata: Metadata = {
-  title: 'Вэб разработка ВКИ - Next.js шаблон',
+  title: 'Веб разработка ВКИ - Next.js шаблон',
   description: 'Шаблон для веб-разработки с использованием Next.js, React Hook Form, Yup, SCSS, Eslint, TanStack Query (React Query)',
 };
 

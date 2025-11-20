@@ -1,11 +1,11 @@
-
+@use '../../../styles/main';
 
 .BreadcrumbsItem {
     color: black; 
     text-decoration: none;
-    color: rgb(119, 119, 119);
-    transition: all 0.2s;
+    color: var(--gray);
+    transition: all 0.1s;
 }
 .BreadcrumbsItem:hover {
-    color: black;
+    color: var(--azul-turquesa);
 }

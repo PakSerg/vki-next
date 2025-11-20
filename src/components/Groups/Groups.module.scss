@@ -1,3 +1,5 @@
+@use '../../styles/main';
+
 .Groups {
   
 }
@@ -9,10 +11,12 @@
 .StudentInGroup a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: var(--dark-blue);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.1s;
+    font-size: 20px;
+    padding: 4px 0px;
 }
 .StudentInGroup a:hover {
-    color: rgb(71, 71, 71);
+    color: var(--azul-turquesa);
 }

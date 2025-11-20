@@ -2,12 +2,25 @@
 
 .Header {
   height: 70px;
-  background-color: var(--background2);
+  background-color: var(--azul-turquesa);
   display: flex;
   align-items: center;
   padding: 0 main.$webSidePadding;
-  font-size: 20px;
+  font-size: 24px;
   gap: 50px;
+  color: white;
+  display: flex;
+  gap: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.Header img {
+  background-color: white;
+  padding: 20px;
+  height: 32px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-radius: 12px;
 }
 
 .title {

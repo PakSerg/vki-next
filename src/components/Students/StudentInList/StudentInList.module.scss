@@ -5,7 +5,6 @@
   grid-template-columns: 370px auto;
   text-decoration: none;
   color: black;
-  text-decoration: underline;
 
   transition: opacity 0.9s ease-in-out, color 0.2s;
 
@@ -14,11 +13,26 @@
     padding: 5px 10px;
     cursor: pointer;
     width: fit-content;
+    background-color: var(--gray);
+    color: white; 
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid transparent;
+    text-decoration: none;
+
+    transition: all 0.1s ease;
+  }
+  button:hover {
+    text-decoration: none;
   }
 }
 
 .Student:hover {
-  color: gray;
+  color: #217373;
+}
+.Student:hover button {
+  color:white;
+  background-color: var(--dark-blue);
 }
 
 
