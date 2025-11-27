@@ -3,6 +3,8 @@ import { dehydrate } from '@tanstack/react-query';
 import TanStackQuery from '@/containers/TanStackQuery';
 import queryClient from '@/api/reactQueryClient';
 import { getGroupsApi } from '@/api/groupsApi';
+import { cookies } from 'next/headers';
+import { verifyAccessToken } from '@/utils/jwt';
 import type GroupInterface from '@/types/GroupInterface';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
@@ -21,6 +23,12 @@ export const metadata: Metadata = {
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>): Promise<React.ReactElement> => {
   let groups: GroupInterface[];
+
+  const cookieStore = await cookies();
+
+  const accessToken = cookieStore.get('accessToken')?.value;
+
+  const userFromServer = verifyAccessToken(accessToken);
 
   // выполняется на сервере - загрузка групп
   await queryClient.prefetchQuery({
@@ -49,7 +57,7 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
     <TanStackQuery state={state}>
       <html lang="ru">
         <body>
-          <Header />
+          <Header userFromServer={userFromServer} />
           <Main>
             <>{children}</>
           </Main>

@@ -1,15 +1,23 @@
+import Link from 'next/link';
 import Menu from '../Menu/Menu';
-
 import styles from './Header.module.scss';
+import type UserInterface from '@/types/UserInterface';
+import Profile from './Profile/Profile';
 
-const Header = (): React.ReactElement => (
-  <header className={styles.Header}>
-    <img src="https://ci.nsu.ru/local/templates/vki/images/logo.png" alt=""/>
-    <div className={styles.title}>
-      Веб разработка
-    </div>
-    <Menu />
-  </header>
-);
+interface Props {
+  userFromServer?: UserInterface;
+}
+
+const Header = ({ userFromServer }: Props): React.ReactElement => {
+  return (
+    <header className={styles.Header}>
+      <Link href="/" className={styles.title} role="heading">
+        ВКИ Класс
+      </Link>
+      <Menu />
+      <Profile userFromServer={userFromServer} />
+    </header>
+  );
+};
 
 export default Header;
